@@ -120,12 +120,6 @@ brew install ffmpeg
 echo "Gifsicle"
 brew install gifsicle
 
-echo "Rust : modern c++"
-brew install rust
-
-echo "Go : google's try at modern c++"
-brew install go
-
 echo "FZF"
 brew install fzf
 
@@ -140,9 +134,6 @@ brew install antlr
 
 echo "cabal : haskell package manager"
 brew install cabal-install
-
-echo "son of erlang and ruby"
-brew install elixir
 
 echo "download manager for terminal"
 brew install wget
