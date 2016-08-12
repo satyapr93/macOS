@@ -6,113 +6,146 @@
 # EXECUTION
 # Homebrew
 if ! command -v brew > /dev/null; then
+  echo "Installing Homebrew.........."
+  prinf "\n"
   ruby -e "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  export PATH="/usr/local/bin:$PATH"
+  if type brew >/dev/null 2>&1; then
+    echo "---------Homebrew installed---------"
+    printf "\n\n"
+  else
+    echo "Error in Homebrew installation"
+    exit 1
+  fi
+
+  if echo $PATH | grep -q "/usr/local/bin"; then
+    export PATH="/usr/local/bin:$PATH"
+  fi
   printf "export PATH=\"/usr/local/bin:$PATH\"\n" >> $HOME/.bash_profile
+  printf "export PATH=\"/usr/local/bin:$PATH\"\n" >> $HOME/.zsh_profile
+fi
+
+if type brew >/dev/null 2>&1; then
+  echo "Bro is here."
+else
+  echo "Homebrew not installed"
+  exit 1
 fi
 
 # Update Homebrew
+echo "Updating brew database"
 brew update
 
 # Check if brew is healthy?
-brew doctor
+if brew doctor | grep -q 'ready to brew' &> /dev/null; then
+    echo "Continuing with installation of brew apps"
+else
+    read -n1 -p "Bro is not healthy, continue anyways ? [y,n]" response
+    print "\n\n"
+    case $response in
+      y|Y) echo "Continuing with installation of brew apps";;
+      n|N) exit 1;;
+      *) exit 1;;
+    esac
+fi
 
-# BASH : latest bourne shell
+echo "Installing brew apps"
+echo "BASH : latest bourne shell"
 brew install bash
 
-# ZSH : modern bash with plugins
+echo "ZSH : modern bash with plugins"
 brew install zsh
 
-# FISH : faster alternative to zsh with sane defaults
+echo "FISH : faster alternative to zsh with sane defaults"
 brew install fish
 
-# Readline : inline text editor for unix
+echo "Readline : inline text editor for unix"
 brew install readline
 
-# asciinema : awesome terminal session recorder
+echo "asciinema : awesome terminal session recorder"
 brew install asciinema
 
-# ShellCheck : shell script checker
+echo "ShellCheck : shell script checker"
 brew install shellcheck
 
-# Colorized Cat : syntax color highligher in teminal
+echo "Colorized Cat : syntax color highligher in teminal"
 brew install ccat
 
-# tmux : Ternminal multiplexer for better multi-tasking in terminal and ssh.
+echo "tmux : Ternminal multiplexer for better multi-tasking in terminal and ssh."
 brew install tmux
 brew install reattach-to-user-namespace
 
-# Mosh
+echo "Mosh"
 brew install mobile-shell
 
-# fasd
+echo "fasd"
 brew install fasd
-echo 'plugins=(fasd)' >> ~/.zshrc
+#echo 'plugins=(fasd)' >> ~/.zshrc
 
-# Tree
+echo "Tree"
 brew install tree
 
-# Git : you know
+echo "Git : you should know"
 brew install git
 
-# Mercurial : old git
+echo "Mercurial : old git"
 brew install hg
 
-# CTags
+echo "CTags"
 brew install ctags
 
-# Tag
+echo "Tag"
 brew install tag
 
-# The Silver Searcher : moderm grep
+echo "The Silver Searcher : moderm grep"
 brew install the_silver_searcher
 
-# Htop
+echo "Htop"
 brew install htop
 
-# HTTPie
+echo "HTTPie"
 brew install httpie
 
-# ImageMagick : photoshop for shell
+echo "ImageMagick : photoshop for shell"
 brew install imagemagick
 
-# Graphviz
+echo "Graphviz"
 brew install graphviz
 
-# FLAC
+echo "FLAC"
 brew install flac
 
-# FFmpeg
+echo "FFmpeg"
 brew install ffmpeg
 
-# Gifsicle
+echo "Gifsicle"
 brew install gifsicle
 
-# Rust : modern c++
+echo "Rust : modern c++"
 brew install rust
 
-# Go : google's try at modern c++
+echo "Go : google's try at modern c++"
 brew install go
 
-# FZF
+echo "FZF"
 brew install fzf
 
-# Peco
+echo "Peco"
 brew install peco
 
-# cloc
+echo "cloc"
 brew install cloc
 
-# Antlr : Parser generator in Java
+echo "Antlr : Parser generator in Java"
 brew install antlr
 
+echo "cabal : haskell package manager"
 brew install cabal-install
 
-# son of erlang and ruby
+echo "son of erlang and ruby"
 brew install elixir
 
-# download manager for terminal
+echo "download manager for terminal"
 brew install wget
 
-# opencv
+echo "opencv"
 brew install opencv
