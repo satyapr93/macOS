@@ -11,28 +11,34 @@ if ! command -v brew > /dev/null; then
   printf "export PATH=\"/usr/local/bin:$PATH\"\n" >> $HOME/.bash_profile
 fi
 
-#update brew
+# Update Homebrew
 brew update
 
-#check if brew is fine?
+# Check if brew is healthy?
 brew doctor
 
-#zsh bash fish
-brew install bash zsh fish
+# BASH : latest bourne shell
+brew install bash
 
-# Readline : Unix text editor
+# ZSH : modern bash with plugins
+brew install zsh
+
+# FISH : faster alternative to zsh with sane defaults
+brew install fish
+
+# Readline : inline text editor for unix
 brew install readline
 
 # asciinema : awesome terminal session recorder
 brew install asciinema
 
-# ShellCheck
+# ShellCheck : shell script checker
 brew install shellcheck
 
-# Colorized Cat
+# Colorized Cat : syntax color highligher in teminal
 brew install ccat
 
-# tmux
+# tmux : Ternminal multiplexer for better multi-tasking in terminal and ssh.
 brew install tmux
 brew install reattach-to-user-namespace
 
@@ -46,10 +52,10 @@ echo 'plugins=(fasd)' >> ~/.zshrc
 # Tree
 brew install tree
 
-# Git
+# Git : you know
 brew install git
 
-# Mercurial
+# Mercurial : old git
 brew install hg
 
 # CTags
@@ -58,7 +64,7 @@ brew install ctags
 # Tag
 brew install tag
 
-# The Silver Searcher
+# The Silver Searcher : moderm grep
 brew install the_silver_searcher
 
 # Htop
@@ -67,7 +73,7 @@ brew install htop
 # HTTPie
 brew install httpie
 
-# ImageMagick
+# ImageMagick : photoshop for shell
 brew install imagemagick
 
 # Graphviz
@@ -82,10 +88,10 @@ brew install ffmpeg
 # Gifsicle
 brew install gifsicle
 
-# Rust
+# Rust : modern c++
 brew install rust
 
-# Go
+# Go : google's try at modern c++
 brew install go
 
 # FZF
@@ -97,4 +103,16 @@ brew install peco
 # cloc
 brew install cloc
 
-brew install antlr cabal-install elixir wget opencv
+# Antlr : Parser generator in Java
+brew install antlr
+
+brew install cabal-install
+
+# son of erlang and ruby
+brew install elixir
+
+# download manager for terminal
+brew install wget
+
+# opencv
+brew install opencv
