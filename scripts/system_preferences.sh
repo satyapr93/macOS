@@ -26,7 +26,7 @@ printf "Keyboard - Enable keyboard access for all controls\n"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 printf "Keyboard - Set a fast keyboard repeat rate\n"
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 printf "Keybaord - Set a shorter delay until key reapeat\n"
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
