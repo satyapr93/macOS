@@ -17,11 +17,9 @@ if ! command -v brew > /dev/null; then
     exit 1
   fi
 
-  if echo $PATH | grep -q "/usr/local/bin"; then
-    export PATH="/usr/local/bin:$PATH"
+  if ! echo $PATH | grep -q "/usr/local/bin"; then
+    printf "export PATH=\"/usr/local/bin:$PATH\"\n" >> $HOME/.zshrc
   fi
-  printf "export PATH=\"/usr/local/bin:$PATH\"\n" >> $HOME/.bash_profile
-  printf "export PATH=\"/usr/local/bin:$PATH\"\n" >> $HOME/.zsh_profile
 fi
 
 if type brew >/dev/null 2>&1; then

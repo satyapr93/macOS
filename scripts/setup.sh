@@ -3,16 +3,26 @@
 # DESCRIPTION
 # Sets up and launches (if necessary) installed software.
 
-private.sh
+#source private.sh
 
-# Bash
-#sudo bash -c "printf '/usr/local/bin/bash\n' >> /etc/shells"
-#sudo zsh -c "printf '/usr/local/bin/zsh\n' >> /etc/shells"
-#sudo fish -c "printf '/usr/local/bin/fish\n' >> /etc/shells"
+# prezto for ZSH
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
 
 # switching to zsh
-#curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-#chsh -s /usr/local/bin/zsh
+if cat /etc/shells | grep -q "/usr/local/bin/zsh" &> /dev/null; then
+  echo "zsh is already in /etc/shells."
+else
+  echo "adding zsh to /etc/shells...."
+  sudo zsh -c "printf '/usr/local/bin/zsh\n' >> /etc/shells"
+fi
+
+if ! echo $0 | grep -q "zsh"; then
+  chsh -s /usr/local/bin/zsh
+fi
+
 
 # Ruby
 #printf "%s\n" "---" > "$HOME/.gemrc"
@@ -43,7 +53,6 @@ private.sh
 #install_git_project "git://github.com/bkuhlmann/sublime_text_setup.git" $REPO_SUBLIME_TEXT_SETUP "sublime_text_setup" "./run.sh i"
 
 # Dotfiles
-#rm -f $HOME/.bash_profile
 #install_git_project "git://github.com/bkuhlmann/dotfiles.git" $REPO_DOTFILES "dotfiles" "./run.sh i"
 #source $HOME/.bashrc
 
@@ -61,12 +70,12 @@ private.sh
 #ssh -T git@github.com
 
 #set git config values
-git config --global user.name $USER_FULL_NAME && \
-git config --global user.email $USER_EMAIL_ID && \
-git config --global github.user $GIT_USER_ID && \
-git config --global core.editor $VISUAL && \
-git config --global color.ui true && \
-git config --global push.default simple
+#git config --global user.name $USER_FULL_NAME && \
+#git config --global user.email $USER_EMAIL_ID && \
+#git config --global github.user $GIT_USER_ID && \
+#git config --global core.editor $VISUAL && \
+#git config --global color.ui true && \
+#git config --global push.default simple
 
 #token
-git config --global github.token your_token_here $GIT_TOKEN
+#git config --global github.token your_token_here $GIT_TOKEN
