@@ -6,14 +6,14 @@
 # EXECUTION
 # Homebrew
 if ! command -v brew > /dev/null; then
-  echo "Installing Homebrew.........."
-  prinf "\n"
+  printf "\nInstalling Homebrew..........\n"
+  printf "\n"
   ruby -e "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/master/install)"
   if type brew >/dev/null 2>&1; then
-    echo "---------Homebrew installed---------"
+    printf "\n---------Homebrew installed---------\n"
     printf "\n\n"
   else
-    echo "Error in Homebrew installation"
+    printf "\nError in Homebrew installation\n"
     exit 1
   fi
 
@@ -23,118 +23,118 @@ if ! command -v brew > /dev/null; then
 fi
 
 if type brew >/dev/null 2>&1; then
-  echo "Bro is here."
+  printf "\nBro is here.\n"
 else
-  echo "Homebrew not installed"
+  printf "\nHomebrew not installed\n"
   exit 1
 fi
 
 # Update Homebrew
-echo "Updating brew database"
+printf "\nUpdating brew database\n"
 brew update
 
 # Check if brew is healthy?
 if brew doctor | grep -q 'ready to brew' &> /dev/null; then
-    echo "Continuing with installation of brew apps"
+    printf "\nContinuing with installation of brew apps\n"
 else
     read -n1 -p "Bro is not healthy, continue anyways ? [y,n]" response
-    print "\n\n"
+    print "\n\n\n"
     case $response in
-      y|Y) echo "Continuing with installation of brew apps";;
+      y|Y) printf "\nContinuing with installation of brew apps";;
       n|N) exit 1;;
       *) exit 1;;
     esac
 fi
 
-echo "Installing brew apps"
-echo "BASH : latest bourne shell"
+printf "\nInstalling brew apps\n"
+printf "\nBASH : latest bourne shell\n"
 brew install bash
 
-echo "ZSH : modern bash with plugins"
+printf "\nZSH : modern bash with plugins\n"
 brew install zsh
 
-echo "FISH : faster alternative to zsh with sane defaults"
+printf "\nFISH : faster alternative to zsh with sane defaults\n"
 brew install fish
 
-echo "Readline : inline text editor for unix"
+printf "\nReadline : inline text editor for unix\n"
 brew install readline
 
-echo "asciinema : awesome terminal session recorder"
+printf "\nasciinema : awesome terminal session recorder\n"
 brew install asciinema
 
-echo "ShellCheck : shell script checker"
+printf "\nShellCheck : shell script checker\n"
 brew install shellcheck
 
-echo "Colorized Cat : syntax color highligher in teminal"
+printf "\nColorized Cat : syntax color highligher in teminal\n"
 brew install ccat
 
-echo "tmux : Ternminal multiplexer for better multi-tasking in terminal and ssh."
+printf "\ntmux : Ternminal multiplexer for better multi-tasking in terminal and ssh.\n"
 brew install tmux
 brew install reattach-to-user-namespace
 
-echo "Mosh"
+printf "\nMosh\n"
 brew install mobile-shell
 
-echo "fasd"
+printf "\nfasd\n"
 brew install fasd
 #echo 'plugins=(fasd)' >> ~/.zshrc
 
-echo "Tree"
+printf "\nTree\n"
 brew install tree
 
-echo "Git : you should know"
+printf "\nGit : you should know\n"
 brew install git
 
-echo "Mercurial : old git"
+printf "\nMercurial : old git\n"
 brew install hg
 
-echo "CTags"
+printf "\nCTags\n"
 brew install ctags
 
-echo "Tag"
+printf "\nTag\n"
 brew install tag
 
-echo "The Silver Searcher : moderm grep"
+printf "\nThe Silver Searcher : moderm grep\n"
 brew install the_silver_searcher
 
-echo "Htop"
+printf "\nHtop\n"
 brew install htop
 
-echo "HTTPie"
+printf "\nHTTPie\n"
 brew install httpie
 
-echo "ImageMagick : photoshop for shell"
+printf "\nImageMagick : photoshop for shell\n"
 brew install imagemagick
 
-echo "Graphviz"
+printf "\nGraphviz\n"
 brew install graphviz
 
-echo "FLAC"
+printf "\nFLAC\n"
 brew install flac
 
-echo "FFmpeg"
+printf "\nFFmpeg\n"
 brew install ffmpeg
 
-echo "Gifsicle"
+printf "\nGifsicle\n"
 brew install gifsicle
 
-echo "FZF"
+printf "\nFZF\n"
 brew install fzf
 
-echo "Peco"
+printf "\nPeco\n"
 brew install peco
 
-echo "cloc"
+printf "\ncloc\n"
 brew install cloc
 
-echo "Antlr : Parser generator in Java"
+printf "\nAntlr : Parser generator in Java\n"
 brew install antlr
 
-echo "cabal : haskell package manager"
+printf "\ncabal : haskell package manager\n"
 brew install cabal-install
 
-echo "download manager for terminal"
+printf "\ndownload manager for terminal\n"
 brew install wget
 
-echo "opencv"
+printf "\nopencv\n"
 brew install opencv

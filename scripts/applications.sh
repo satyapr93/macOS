@@ -6,63 +6,63 @@
 
 # CASK App installation
 
-echo "Installing macOS apps through brew cask"
-echo "MacVim : Vim for mac"
+printf "\nInstalling macOS apps through brew cask\n"
+printf "\nmacVim : Vim for mac\n"
 cask install macvim
 
-echo "Google Chrome : just in case safari doesn't work"
+printf "\ngoogle chrome : just in case safari doesn't work\n"
 cask install chrome
 
-echo "mpv : extensible mplayer"
+printf "\nmpv : extensible mplayer\n"
 cask install mpv
 
-echo "mplayerx : for movies"
+printf "\nmplayerx : for movies\n"
 cask install mplayerx
 
-echo "vlc : media player just in case mplayerx doesn't work"
+printf "\nvlc : media player just in case mplayerx doesn't work\n"
 cask install vlc
 
-echo "igetter : IDM for macOS (download manager)"
+printf "\nigetter : IDM for macOS (download manager)\n"
 cask install igetter
 
-echo "google drive : directory for exam notes"
+printf "\ngoogle drive : directory for exam notes\n"
 cask install google-drive
 
-echo "dropbox : the other google drive"
+printf "\ndropbox : the other google drive\n"
 cask install dropbox
 
-echo "simplenote : cross platform note taking app"
+printf "\nsimplenote : cross platform note taking app\n"
 cask install simplenote
 
-echo "pocket : Save articles for reading later"
+printf "\npocket : Save articles for reading later\n"
 cask install pocket
 
-echo "Todoist : todo app"
+printf "\ntodoist : todo app\n"
 cask install todoist
 
-echo "VS Code : what atom was supposed to be from Micrsoft (strange)"
+printf "\nvs code : what atom was supposed to be from Micrsoft (strange)\n"
 cask install visual-studio-code
 
-echo "Sublime Text : Fast sleek editor for programming"
+printf "\nsublime text : Fast sleek editor for programming\n"
 cask install sublime-text
 
-echo "Atom : Hackable text editor (destined to fail?)"
+printf "\natom : Hackable text editor (destined to fail?)\n"
 cask install atom
 
-echo "Skype : Video calling from microsoft"
+printf "\nskype : Video calling from microsoft\n"
 cask install skype
 
-echo "WhatsApp : Secure chat app."
+printf "\nwhatsApp : Secure chat app.\n"
 cask install whatsapp
 
-echo "Hacker-menu : For news"
+printf "\nhacker-menu : For news\n"
 cask install hacker-menu
 
-echo "Firefox : Standard broser from mozilla"
+printf "\nfirefox : Standard broser from mozilla\n"
 cask install firefox
 
-echo "Epic : Browser designed for privacy and security"
+printf "\nepic : Browser designed for privacy and security\n"
 cask install epic
 
-echo "macTex : Tex package for macOS"
+printf "\nmacTex : Tex package for macOS\n"
 cask install mactex

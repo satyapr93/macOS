@@ -13,10 +13,10 @@ done
 
 # switching to zsh
 if cat /etc/shells | grep -q "/usr/local/bin/zsh" &> /dev/null; then
-  echo "zsh is already in /etc/shells."
+  printf "\nzsh is already in /etc/shells.\n"
 else
-  echo "adding zsh to /etc/shells...."
-  sudo zsh -c "printf '/usr/local/bin/zsh\n' >> /etc/shells"
+  printf "\nadding zsh to /etc/shells...."
+  sudo zsh -c "printf '/usr/local/bin/zsh\n' >> /etc/shells\n"
 fi
 
 if ! echo $0 | grep -q "zsh"; then
