@@ -14,6 +14,9 @@ systemsetup -setrestartfreeze on
 printf "\nSystem - Disable the 'Are you sure you want to open this application?' dialog\n"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
+printf "\n Save JPEG for screenshots instead of PNG for small footprint\n"
+defaults write com.apple.screencapture type jpg
+
 ### Keyboard Settings
 printf "\nChanging Keyboard Settigns\n\n"
 printf "\nKeyboard - Automatically illuminate built-in MacBook keyboard in low light\n"
